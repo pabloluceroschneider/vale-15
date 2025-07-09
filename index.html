@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#15AñosVale</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        overflow-x: hidden;
+        background: linear-gradient(135deg, #ffeef8 0%, #f8e8f5 100%);
+        margin: 0;
+        padding: 0;
+      }
+
+      .section {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 2rem;
+        text-align: center;
+        border-left: 3px solid #e91e63;
+        border-right: 3px solid #e91e63;
+        border-top: 2px solid #e91e63;
+        border-bottom: 2px solid #e91e63;
+        margin: 0;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+      }
+
+      .parallax-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+        z-index: -1;
+        opacity: 0.3;
+      }
+
+      .section-1 .parallax-bg {
+        background-image: url("https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&h=800&fit=crop");
+      }
+
+      .section-2 .parallax-bg {
+        background-image: url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop");
+      }
+
+      .section-3 .parallax-bg {
+        background-image: url("https://images.unsplash.com/photo-1524863479829-916d8e77f114?w=1200&h=800&fit=crop");
+      }
+
+      .section-4 .parallax-bg {
+        background-image: url("https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200&h=800&fit=crop");
+      }
+
+      .section-5 .parallax-bg {
+        background-image: url("https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200&h=800&fit=crop");
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: #e91e63;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        font-weight: bold;
+      }
+
+      h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: #c2185b;
+        margin-bottom: 1.5rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      h3 {
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+        color: #ad1457;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+        color: #880e4f;
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+
+      .countdown {
+        background: linear-gradient(135deg, #e91e63, #c2185b);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 15px;
+        margin: 2rem 0;
+        box-shadow: 0 8px 32px rgba(233, 30, 99, 0.3);
+      }
+
+      .countdown-timer {
+        display: flex;
+        justify-content: center;
+        gap: clamp(0.5rem, 2vw, 1rem);
+        margin-top: 1rem;
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+
+      .time-unit {
+        background: rgba(255, 255, 255, 0.2);
+        padding: clamp(0.5rem, 2vw, 1rem);
+        border-radius: 10px;
+        min-width: clamp(60px, 15vw, 80px);
+        flex: 1;
+        max-width: 100px;
+        text-align: center;
+      }
+
+      .time-number {
+        font-size: clamp(1.2rem, 4vw, 2.5rem);
+        font-weight: bold;
+        display: block;
+        line-height: 1.2;
+      }
+
+      .time-label {
+        font-size: clamp(0.6rem, 2vw, 1rem);
+        opacity: 0.9;
+        line-height: 1.1;
+        margin-top: 0.2rem;
+      }
+
+      .btn {
+        background: linear-gradient(135deg, #e91e63, #c2185b);
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 25px;
+        font-size: clamp(1rem, 2vw, 1.3rem);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        margin: 1rem;
+        box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+      }
+
+      .date-info {
+        background: rgba(233, 30, 99, 0.1);
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 1rem 0;
+        border: 2px solid #e91e63;
+      }
+
+      .location-info {
+        background: rgba(233, 30, 99, 0.1);
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 1rem 0;
+        border: 2px solid #e91e63;
+      }
+
+      .dress-code {
+        background: linear-gradient(135deg, #e91e63, #c2185b);
+        color: white;
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 1rem 0;
+        box-shadow: 0 8px 32px rgba(233, 30, 99, 0.3);
+      }
+
+      .whatsapp-btn {
+        background: #25d366;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 25px;
+        font-size: clamp(1rem, 2vw, 1.3rem);
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        margin: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+      }
+
+      .whatsapp-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+      }
+
+      .forms-btn {
+        background: #4285f4;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 25px;
+        font-size: clamp(1rem, 2vw, 1.3rem);
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        margin: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
+      }
+
+      .forms-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(66, 133, 244, 0.4);
+      }
+
+      @media (max-width: 768px) {
+        .section {
+          padding: 1rem;
+        }
+
+        .countdown-timer {
+          gap: clamp(0.3rem, 1.5vw, 0.5rem);
+        }
+
+        .time-unit {
+          min-width: clamp(50px, 12vw, 60px);
+          padding: clamp(0.4rem, 1.5vw, 0.8rem);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .section {
+          padding: 0.8rem;
+        }
+      }
+
+      .floating-hearts {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      .heart {
+        position: absolute;
+        color: #e91e63;
+        font-size: 20px;
+        animation: float 6s ease-in-out infinite;
+        opacity: 0.7;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Navbar Sticky */
+      .navbar {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 2px solid #e91e63;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0.8rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-logo {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-weight: bold;
+        color: #e91e63;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: clamp(1rem, 3vw, 2rem);
+      }
+
+      .nav-item {
+        margin: 0;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: #880e4f;
+        font-weight: 500;
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link:hover {
+        background: linear-gradient(135deg, #e91e63, #c2185b);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+      }
+
+      .nav-link.active {
+        background: linear-gradient(135deg, #e91e63, #c2185b);
+        color: white;
+        box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+      }
+
+      /* Responsive Navbar */
+      @media (max-width: 768px) {
+        .nav-container {
+          padding: 0.6rem 1rem;
+        }
+
+        .nav-menu {
+          gap: clamp(0.5rem, 2vw, 1rem);
+        }
+
+        .nav-link {
+          padding: 0.4rem 0.8rem;
+          font-size: clamp(0.8rem, 2.2vw, 1rem);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .nav-container {
+          padding: 0.5rem 0.8rem;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .nav-menu {
+          gap: 0.5rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .nav-link {
+          padding: 0.3rem 0.6rem;
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="floating-hearts" id="hearts-container"></div>
+
+    <!-- Navegación Sticky -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">#15AñosVale</div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#inicio" class="nav-link">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a href="#calendario" class="nav-link">Fecha</a>
+          </li>
+          <li class="nav-item">
+            <a href="#ubicacion" class="nav-link">Lugar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#precios" class="nav-link">Precios</a>
+          </li>
+          <li class="nav-item">
+            <a href="#resumen" class="nav-link">Info</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Sección 1: Invitación Principal -->
+    <section class="section section-1" id="inicio">
+      <div class="parallax-bg"></div>
+      <h1>Mis 15 años</h1>
+      <h2>Te invito a celebrar</h2>
+      <h3>Valentina</h3>
+
+      <div class="countdown">
+        <p
+          style="
+            color: white;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            margin-bottom: 1rem;
+          "
+        >
+          Cuenta regresiva
+        </p>
+        <div class="countdown-timer" id="countdown">
+          <div class="time-unit">
+            <span class="time-number" id="days">00</span>
+            <span class="time-label">Días</span>
+          </div>
+          <div class="time-unit">
+            <span class="time-number" id="hours">00</span>
+            <span class="time-label">Horas</span>
+          </div>
+          <div class="time-unit">
+            <span class="time-number" id="minutes">00</span>
+            <span class="time-label">Minutos</span>
+          </div>
+          <div class="time-unit">
+            <span class="time-number" id="seconds">00</span>
+            <span class="time-label">Segundos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 2: Calendario -->
+    <section class="section section-2" id="calendario">
+      <div class="parallax-bg"></div>
+      <h2>Calendario</h2>
+
+      <div class="date-info">
+        <p
+          style="
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: bold;
+            color: #e91e63;
+          "
+        >
+          Viernes 29 de Agosto
+        </p>
+        <p style="font-size: clamp(1.5rem, 3vw, 2rem); margin-top: 1rem">
+          Hora: 21:00 hs
+        </p>
+        <p style="font-size: clamp(1.2rem, 2.5vw, 1.5rem); margin-top: 0.5rem">
+          Viernes 29 de Agosto, 2025
+        </p>
+      </div>
+    </section>
+
+    <!-- Sección 3: Ubicación -->
+    <section class="section section-3" id="ubicacion">
+      <div class="parallax-bg"></div>
+      <h2>Ubicación</h2>
+
+      <div class="location-info">
+        <p style="font-weight: bold; margin-bottom: 1rem">Ruta 4 km 109</p>
+        <p style="margin-bottom: 1.5rem">Salón de Fiestas "El Jardín"</p>
+        <a
+          href="https://maps.app.goo.gl/XKLkijABbHxA4NV69"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn"
+          style="display: inline-block; text-decoration: none"
+        >
+          📍 Ver ubicación en Google Maps
+        </a>
+      </div>
+    </section>
+
+    <!-- Sección 4: Precios y Confirmación -->
+    <section class="section section-4" id="precios">
+      <div class="parallax-bg"></div>
+      <h2>Precios</h2>
+
+      <div class="dress-code">
+        <p
+          style="
+            color: white;
+            font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+          "
+        >
+          Valor de entrada cena $0000
+        </p>
+
+        <p
+          style="
+            color: white;
+            font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+          "
+        >
+          Valor entrada brindis $0000
+        </p>
+      </div>
+
+      <a
+        href="https://forms.google.com/your-form-id"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="forms-btn"
+        style="margin-top: 1rem"
+      >
+        📋 Confirmar en Google Forms
+      </a>
+    </section>
+
+    <!-- Sección 5: Resumen Final -->
+    <section class="section section-5" id="resumen">
+      <div class="parallax-bg"></div>
+      <h2>Mis 15 años</h2>
+
+      <div
+        style="
+          background: rgba(233, 30, 99, 0.1);
+          padding: 2.5rem;
+          border-radius: 15px;
+          margin: 2rem 0;
+          border: 2px solid #e91e63;
+          text-align: center;
+        "
+      >
+        <p
+          style="
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: bold;
+            color: #e91e63;
+            margin-bottom: 1.5rem;
+          "
+        >
+          📅 Viernes 29 de Agosto, 2025
+        </p>
+
+        <p
+          style="
+            font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+            color: #880e4f;
+            margin-bottom: 1.5rem;
+          "
+        >
+          🕘 21:00 hs
+        </p>
+
+        <p
+          style="
+            font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+            color: #880e4f;
+            margin-bottom: 2rem;
+          "
+        >
+          📍 Ruta 4 km 109 - Salón de Fiestas "El Jardín"
+        </p>
+      </div>
+
+      <h1
+        style="
+          font-size: clamp(2.5rem, 5vw, 4rem);
+          color: #e91e63;
+          margin-top: 2rem;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        "
+      >
+        ¡Te espero! 💕
+      </h1>
+    </section>
+
+    <script>
+      // Countdown Timer
+      function updateCountdown() {
+        const eventDate = new Date("2025-08-29T21:00:00").getTime();
+        const now = new Date().getTime();
+        const timeLeft = eventDate - now;
+
+        if (timeLeft > 0) {
+          const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (timeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+          document.getElementById("days").textContent = days
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("hours").textContent = hours
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("minutes").textContent = minutes
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("seconds").textContent = seconds
+            .toString()
+            .padStart(2, "0");
+        } else {
+          document.getElementById("countdown").innerHTML =
+            '<p style="color: white; font-size: 2rem;">¡Es hoy!</p>';
+        }
+      }
+
+      // Optimized Parallax Effect
+      let ticking = false;
+
+      function handleParallax() {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }
+
+      function updateParallax() {
+        const sections = document.querySelectorAll(".section");
+        const scrollTop = window.pageYOffset;
+
+        sections.forEach((section, index) => {
+          const parallaxBg = section.querySelector(".parallax-bg");
+          if (parallaxBg) {
+            const rect = section.getBoundingClientRect();
+            const speed = 0.3;
+
+            // Only apply parallax if section is visible
+            if (rect.bottom >= 0 && rect.top <= window.innerHeight) {
+              const yPos = -(scrollTop - index * window.innerHeight) * speed;
+              parallaxBg.style.transform = `translateY(${yPos}px)`;
+            }
+          }
+        });
+
+        ticking = false;
+      }
+
+      // Floating Hearts Animation
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💕";
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.animationDelay = Math.random() * 2 + "s";
+        heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+
+        document.getElementById("hearts-container").appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 7000);
+      }
+
+      // Smooth Scroll - Simplified (optional)
+      function initSmoothScroll() {
+        // Enable natural smooth scrolling for the whole page
+        document.documentElement.style.scrollBehavior = "smooth";
+      }
+
+      // Navbar Active State Management
+      function updateActiveNavLink() {
+        const sections = document.querySelectorAll(".section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        let currentSection = "";
+
+        sections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === "#" + currentSection) {
+            link.classList.add("active");
+          }
+        });
+      }
+
+      // Smooth scroll with offset for navbar
+      function smoothScrollToSection(targetId) {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          const navbarHeight = document.querySelector(".navbar").offsetHeight;
+          const elementPosition = targetElement.offsetTop - navbarHeight;
+
+          window.scrollTo({
+            top: elementPosition,
+            behavior: "smooth",
+          });
+        }
+      }
+
+      // Initialize
+      document.addEventListener("DOMContentLoaded", function () {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        window.addEventListener("scroll", handleParallax);
+        window.addEventListener("scroll", updateActiveNavLink);
+
+        setInterval(createHeart, 2000);
+
+        initSmoothScroll();
+
+        // Handle navbar link clicks
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            smoothScrollToSection(targetId);
+          });
+        });
+
+        // Initial active state
+        updateActiveNavLink();
+      });
+
+      // Responsive handling
+      window.addEventListener("resize", function () {
+        handleParallax();
+      });
+    </script>
+  </body>
+</html>
