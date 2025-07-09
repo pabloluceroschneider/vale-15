@@ -1,0 +1,33 @@
+{
+  "name": "invitacion-15-anos-valentina",
+  "version": "1.0.0",
+  "description": "Página web de invitación para los 15 años de Valentina",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3000 -o",
+    "build": "echo 'No build process needed for static HTML'",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d .",
+    "serve": "npx http-server . -p 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/usuario/invitacion-15-anos-valentina.git"
+  },
+  "keywords": [
+    "invitacion",
+    "15-anos",
+    "quinceanera",
+    "html",
+    "css",
+    "javascript",
+    "responsive"
+  ],
+  "author": "Valentina",
+  "license": "MIT",
+  "devDependencies": {
+    "gh-pages": "^6.1.1",
+    "http-server": "^14.1.1"
+  },
+  "homepage": "https://usuario.github.io/invitacion-15-anos-valentina"
+}
