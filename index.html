@@ -18,13 +18,20 @@
       body {
         font-family: "Georgia", serif;
         overflow-x: hidden;
-        background: linear-gradient(135deg, #ffeef8 0%, #f8e8f5 100%);
+        background: linear-gradient(
+          135deg,
+          #0a0a0a 0%,
+          #1a1a2e 25%,
+          #16213e 50%,
+          #0f3460 75%,
+          #533483 100%
+        );
         margin: 0;
         padding: 0;
       }
 
       .section {
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -32,13 +39,30 @@
         position: relative;
         padding: 2rem;
         text-align: center;
-        border-left: 3px solid #e91e63;
-        border-right: 3px solid #e91e63;
-        border-top: 2px solid #e91e63;
-        border-bottom: 2px solid #e91e63;
+        border-left: 3px solid #4a90e2;
+        border-right: 3px solid #4a90e2;
+        border-top: 2px solid #4a90e2;
+        border-bottom: 2px solid #4a90e2;
         margin: 0;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(10, 10, 10, 0.85);
         backdrop-filter: blur(10px);
+        box-sizing: border-box;
+      }
+
+      @media (max-width: 768px) {
+        .section {
+          min-height: calc(100vh - 60px);
+          padding-top: 80px;
+          padding-bottom: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .section {
+          min-height: calc(100vh - 80px);
+          padding-top: 100px;
+          padding-bottom: 1rem;
+        }
       }
 
       .parallax-bg {
@@ -55,60 +79,67 @@
       }
 
       .section-1 .parallax-bg {
-        background-image: url("https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&h=800&fit=crop");
+        background-image: url("assets/vale.jpeg");
       }
 
       .section-2 .parallax-bg {
-        background-image: url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop");
+        background-image: url("assets/cielo.jpeg");
       }
 
       .section-3 .parallax-bg {
-        background-image: url("https://images.unsplash.com/photo-1524863479829-916d8e77f114?w=1200&h=800&fit=crop");
+        background-image: url("assets/vale.jpeg");
       }
 
       .section-4 .parallax-bg {
-        background-image: url("https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200&h=800&fit=crop");
+        background-image: url("assets/cielo.jpeg");
       }
 
       .section-5 .parallax-bg {
-        background-image: url("https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200&h=800&fit=crop");
+        background-image: url("assets/vale.jpeg");
+      }
+
+      .section-6 .parallax-bg {
+        background-image: url("assets/cielo.jpeg");
       }
 
       h1 {
         font-size: clamp(2.5rem, 5vw, 4rem);
-        color: #e91e63;
+        color: #ffffff;
         margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+          0 0 40px rgba(74, 144, 226, 0.6);
         font-weight: bold;
       }
 
       h2 {
         font-size: clamp(2rem, 4vw, 3rem);
-        color: #c2185b;
+        color: #4a90e2;
         margin-bottom: 1.5rem;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        text-shadow: 0 0 15px rgba(74, 144, 226, 0.8);
       }
 
       h3 {
         font-size: clamp(1.5rem, 3vw, 2.5rem);
-        color: #ad1457;
+        color: #ffffff;
         margin-bottom: 1rem;
       }
 
       p {
         font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-        color: #880e4f;
+        color: #e0e0e0;
         margin: 0.5rem 0;
         line-height: 1.6;
       }
 
       .countdown {
-        background: linear-gradient(135deg, #e91e63, #c2185b);
+        background: linear-gradient(135deg, #1a1a2e, #16213e);
         color: white;
         padding: 1.5rem;
         border-radius: 15px;
         margin: 2rem 0;
-        box-shadow: 0 8px 32px rgba(233, 30, 99, 0.3);
+        box-shadow: 0 8px 32px rgba(74, 144, 226, 0.3),
+          inset 0 0 20px rgba(255, 255, 255, 0.1);
+        border: 1px solid #4a90e2;
       }
 
       .countdown-timer {
@@ -145,7 +176,7 @@
       }
 
       .btn {
-        background: linear-gradient(135deg, #e91e63, #c2185b);
+        background: linear-gradient(135deg, #4a90e2, #533483);
         color: white;
         padding: 1rem 2rem;
         border: none;
@@ -156,37 +187,46 @@
         text-decoration: none;
         display: inline-block;
         margin: 1rem;
-        box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+        box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3),
+          0 0 20px rgba(74, 144, 226, 0.2);
       }
 
       .btn:hover {
         transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+        box-shadow: 0 8px 25px rgba(74, 144, 226, 0.5),
+          0 0 30px rgba(74, 144, 226, 0.4);
       }
 
       .date-info {
-        background: rgba(233, 30, 99, 0.1);
+        background: rgba(26, 26, 46, 0.8);
         padding: 2rem;
         border-radius: 15px;
         margin: 1rem 0;
-        border: 2px solid #e91e63;
+        border: 2px solid #4a90e2;
+        box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
       }
 
       .location-info {
-        background: rgba(233, 30, 99, 0.1);
+        background: rgba(26, 26, 46, 0.8);
         padding: 2rem;
         border-radius: 15px;
         margin: 1rem 0;
-        border: 2px solid #e91e63;
+        border: 2px solid #4a90e2;
+        box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
       }
 
       .dress-code {
-        background: linear-gradient(135deg, #e91e63, #c2185b);
+        background: linear-gradient(135deg, #1a1a2e, #16213e);
         color: white;
         padding: 2rem;
         border-radius: 15px;
         margin: 1rem 0;
-        box-shadow: 0 8px 32px rgba(233, 30, 99, 0.3);
+        box-shadow: 0 8px 32px rgba(74, 144, 226, 0.3),
+          inset 0 0 20px rgba(255, 255, 255, 0.1);
+        border: 1px solid #4a90e2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .whatsapp-btn {
@@ -260,21 +300,25 @@
         z-index: -2;
       }
 
-      .heart {
+      .star {
         position: absolute;
-        color: #e91e63;
+        color: #ffffff;
         font-size: 20px;
-        animation: float 6s ease-in-out infinite;
+        animation: twinkle 4s ease-in-out infinite;
         opacity: 0.7;
       }
 
-      @keyframes float {
+      @keyframes twinkle {
         0% {
-          transform: translateY(100vh) rotate(0deg);
+          transform: translateY(100vh) scale(0.5);
           opacity: 1;
         }
+        50% {
+          transform: translateY(50vh) scale(1.2);
+          opacity: 0.9;
+        }
         100% {
-          transform: translateY(-100px) rotate(360deg);
+          transform: translateY(-100px) scale(0.8);
           opacity: 0;
         }
       }
@@ -284,11 +328,12 @@
         position: sticky;
         top: 0;
         width: 100%;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(10, 10, 10, 0.95);
         backdrop-filter: blur(10px);
-        border-bottom: 2px solid #e91e63;
+        border-bottom: 2px solid #4a90e2;
         z-index: 1000;
         transition: all 0.3s ease;
+        box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
       }
 
       .nav-container {
@@ -303,8 +348,8 @@
       .nav-logo {
         font-size: clamp(1.5rem, 3vw, 2rem);
         font-weight: bold;
-        color: #e91e63;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        color: #ffffff;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
       }
 
       .nav-menu {
@@ -321,7 +366,7 @@
 
       .nav-link {
         text-decoration: none;
-        color: #880e4f;
+        color: #e0e0e0;
         font-weight: 500;
         font-size: clamp(0.9rem, 2vw, 1.1rem);
         padding: 0.5rem 1rem;
@@ -331,16 +376,18 @@
       }
 
       .nav-link:hover {
-        background: linear-gradient(135deg, #e91e63, #c2185b);
+        background: linear-gradient(135deg, #4a90e2, #533483);
         color: white;
         transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+        box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4),
+          0 0 20px rgba(74, 144, 226, 0.3);
       }
 
       .nav-link.active {
-        background: linear-gradient(135deg, #e91e63, #c2185b);
+        background: linear-gradient(135deg, #4a90e2, #533483);
         color: white;
-        box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+        box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4),
+          0 0 20px rgba(74, 144, 226, 0.3);
       }
 
       /* Responsive Navbar */
@@ -377,6 +424,210 @@
           font-size: 0.85rem;
         }
       }
+
+      /* Calendario visual */
+      .calendar-container {
+        background: rgba(26, 26, 46, 0.8);
+        border: 2px solid #4a90e2;
+        border-radius: 15px;
+        padding: 2rem 1rem 1.5rem 1rem;
+        margin: 2rem auto 1.5rem auto;
+        max-width: 400px;
+        box-shadow: 0 4px 20px rgba(74, 144, 226, 0.2);
+      }
+      .calendar-header {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #ffffff;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+      .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 0.5rem;
+      }
+      .calendar-day,
+      .calendar-date {
+        width: 2.2rem;
+        height: 2.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        border-radius: 50%;
+        font-weight: 500;
+        transition: background 0.2s, color 0.2s, text-decoration 0.2s;
+      }
+      .calendar-day {
+        color: #4a90e2;
+        background: none;
+        font-weight: bold;
+        opacity: 0.8;
+        border-radius: 0;
+      }
+      .calendar-date {
+        background: rgba(26, 26, 46, 0.9);
+        color: #e0e0e0;
+        border: 1.5px solid #4a90e2;
+        cursor: default;
+        position: relative;
+      }
+      .calendar-date.past {
+        color: #bdbdbd;
+        background: rgba(22, 33, 62, 0.7);
+        opacity: 0.7;
+        position: relative;
+      }
+      .calendar-date.past .red-x {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1.2);
+        color: #4a90e2;
+        font-size: 1.3em;
+        font-weight: bold;
+        pointer-events: none;
+        z-index: 2;
+        line-height: 1;
+        user-select: none;
+      }
+      .calendar-date.today {
+        border: 2.5px solid #4a90e2;
+        background: rgba(74, 144, 226, 0.2);
+        color: #ffffff;
+        font-weight: bold;
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+      }
+      .calendar-date.special {
+        background: linear-gradient(135deg, #4a90e2, #533483);
+        color: #fff;
+        font-weight: bold;
+        border: 2.5px solid #fff;
+        box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.4);
+        animation: pulse 1.2s infinite alternate;
+      }
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.4);
+        }
+        100% {
+          box-shadow: 0 0 0 8px rgba(74, 144, 226, 0.6);
+        }
+      }
+      @media (max-width: 480px) {
+        .calendar-container {
+          padding: 1rem 0.2rem 1rem 0.2rem;
+        }
+        .calendar-day,
+        .calendar-date {
+          width: 1.7rem;
+          height: 1.7rem;
+          font-size: 0.95rem;
+        }
+      }
+
+      /* Flex para card y calendario */
+      .calendar-flex-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        margin: 2rem 0 1.5rem 0;
+        width: 100%;
+        max-width: 900px;
+        box-sizing: border-box;
+        min-height: 350px;
+      }
+      .calendar-flex-group .date-info {
+        flex: 1 1 0;
+        min-width: 220px;
+        max-width: 350px;
+      }
+      .calendar-flex-group .calendar-container {
+        flex: 1 1 0;
+        min-width: 220px;
+        max-width: 400px;
+      }
+      @media (max-width: 900px) {
+        .calendar-flex-group {
+          gap: 1rem;
+        }
+      }
+      @media (max-width: 700px) {
+        .calendar-flex-group {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 1.5rem;
+        }
+        .calendar-flex-group .date-info,
+        .calendar-flex-group .calendar-container {
+          max-width: 100%;
+          min-width: 0;
+        }
+      }
+
+      /* Card unificada calendario */
+      .calendar-unified-card {
+        background: rgba(26, 26, 46, 0.8);
+        border: 2px solid #4a90e2;
+        border-radius: 15px;
+        padding: 2.5rem 1.5rem 2rem 1.5rem;
+        margin: 2rem auto 1.5rem auto;
+        max-width: 600px;
+        box-shadow: 0 4px 20px rgba(74, 144, 226, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .calendar-unified-header {
+        width: 100%;
+        text-align: center;
+      }
+      .calendar-unified-date {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.7rem;
+      }
+      .calendar-unified-day {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-weight: bold;
+        color: #ffffff;
+        line-height: 1;
+      }
+      .calendar-unified-hour {
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: #4a90e2;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-top: 0.2rem;
+      }
+      @media (max-width: 700px) {
+        .calendar-unified-card {
+          padding: 1.2rem 0.3rem 1.2rem 0.3rem;
+        }
+      }
+      .secondary-box {
+        background: linear-gradient(
+          135deg,
+          rgba(26, 26, 46, 0.9),
+          rgba(22, 33, 62, 0.9)
+        );
+        border: 2px solid #4a90e2;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(74, 144, 226, 0.2);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      @media (max-width: 600px) {
+        .secondary-box {
+          padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -397,7 +648,10 @@
             <a href="#ubicacion" class="nav-link">Lugar</a>
           </li>
           <li class="nav-item">
-            <a href="#precios" class="nav-link">Precios</a>
+            <a href="#precios" class="nav-link">Valor</a>
+          </li>
+          <li class="nav-item">
+            <a href="#brindis" class="nav-link">Brindis</a>
           </li>
           <li class="nav-item">
             <a href="#resumen" class="nav-link">Info</a>
@@ -409,9 +663,8 @@
     <!-- Sección 1: Invitación Principal -->
     <section class="section section-1" id="inicio">
       <div class="parallax-bg"></div>
-      <h1>Mis 15 años</h1>
-      <h2>Te invito a celebrar</h2>
-      <h3>Valentina</h3>
+      <h1>Valentina</h1>
+      <h2>Mis 15 años</h2>
 
       <div class="countdown">
         <p
@@ -447,24 +700,29 @@
     <!-- Sección 2: Calendario -->
     <section class="section section-2" id="calendario">
       <div class="parallax-bg"></div>
-      <h2>Calendario</h2>
+      <h2>Fecha</h2>
 
-      <div class="date-info">
-        <p
+      <div class="calendar-unified-card">
+        <div class="calendar-unified-header">
+          <div class="calendar-unified-date">
+            <span class="calendar-unified-day">Viernes 29 de Agosto</span>
+
+            <span class="calendar-unified-day">21:00 hs</span>
+          </div>
+        </div>
+        <div
+          class="calendar-container"
           style="
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: bold;
-            color: #e91e63;
+            margin-top: 0.5rem;
+            box-shadow: none;
+            border: none;
+            background: none;
+            padding: 0;
           "
         >
-          Viernes 29 de Agosto
-        </p>
-        <p style="font-size: clamp(1.5rem, 3vw, 2rem); margin-top: 1rem">
-          Hora: 21:00 hs
-        </p>
-        <p style="font-size: clamp(1.2rem, 2.5vw, 1.5rem); margin-top: 0.5rem">
-          Viernes 29 de Agosto, 2025
-        </p>
+          <div class="calendar-header"></div>
+          <div class="calendar-grid" id="calendar-grid"></div>
+        </div>
       </div>
     </section>
 
@@ -474,8 +732,8 @@
       <h2>Ubicación</h2>
 
       <div class="location-info">
-        <p style="font-weight: bold; margin-bottom: 1rem">Ruta 4 km 109</p>
-        <p style="margin-bottom: 1.5rem">Salón de Fiestas "El Jardín"</p>
+        <p style="font-weight: bold; margin-bottom: 1rem">"Camilo Bar"</p>
+        <p style="margin-bottom: 1.5rem">Ruta 8, Kilómetro 109. La Carlota</p>
         <a
           href="https://maps.app.goo.gl/XKLkijABbHxA4NV69"
           target="_blank"
@@ -491,63 +749,284 @@
     <!-- Sección 4: Precios y Confirmación -->
     <section class="section section-4" id="precios">
       <div class="parallax-bg"></div>
-      <h2>Precios</h2>
+      <h2>Valor de Entrada</h2>
 
       <div class="dress-code">
         <p
           style="
             color: white;
             font-size: clamp(1.3rem, 2.8vw, 1.8rem);
-            margin-bottom: 1.5rem;
-            font-weight: bold;
+            margin-bottom: 0.5rem;
           "
         >
-          Valor de entrada cena $0000
+          Mayores: <strong>$45000</strong>
         </p>
 
         <p
           style="
             color: white;
             font-size: clamp(1.3rem, 2.8vw, 1.8rem);
-            margin-bottom: 1.5rem;
-            font-weight: bold;
+            margin-bottom: 0.5rem;
           "
         >
-          Valor entrada brindis $0000
+          Menores hasta 11 años: <strong>$20000</strong>
+        </p>
+
+        <p
+          style="
+            color: white;
+            font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+            margin-bottom: 0.5rem;
+          "
+        >
+          Menores hasta 4 años: <strong>$5000</strong>
         </p>
       </div>
 
-      <a
-        href="https://forms.google.com/your-form-id"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="forms-btn"
-        style="margin-top: 1rem"
-      >
-        📋 Confirmar en Google Forms
-      </a>
+      <div class="secondary-box">
+        <p
+          style="
+            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            text-align: center;
+          "
+        >
+          Si preferís abonar la entrada por transferencia, te dejo los datos:
+        </p>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.7rem;
+            width: 100%;
+            text-align: center;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.7rem;
+              position: relative;
+            "
+          >
+            <span style="color: #e0e0e0; font-weight: bold">Alias:</span>
+            <span
+              id="alias-text"
+              style="
+                text-decoration: underline;
+                color: #e0e0e0;
+                letter-spacing: 1px;
+              "
+              >15ValenchirinoR</span
+            >
+            <button
+              class="btn-copy"
+              onclick="copyToClipboard('alias-text', this)"
+              style="
+                background: rgba(74, 144, 226, 0.1);
+                color: #4a90e2;
+                border: none;
+                border-radius: 10px;
+                padding: 0.3rem 0.8rem;
+                font-size: 1rem;
+                cursor: pointer;
+                font-weight: bold;
+                position: relative;
+                transition: all 0.3s ease;
+              "
+            >
+              📋
+              <span
+                class="tooltip-copy"
+                style="
+                  display: none;
+                  position: absolute;
+                  bottom: 120%;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  background: #b6fcb6;
+                  color: #222;
+                  padding: 0.3rem 0.8rem;
+                  border-radius: 8px;
+                  font-size: 0.95rem;
+                  font-weight: bold;
+                  white-space: nowrap;
+                  z-index: 10;
+                  opacity: 0;
+                  transition: opacity 0.2s;
+                "
+                >Datos copiados</span
+              >
+            </button>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.7rem;
+              position: relative;
+            "
+          >
+            <span style="color: #e0e0e0; font-weight: bold">CVU:</span>
+            <span
+              id="cvu-text"
+              style="
+                text-decoration: underline;
+                color: #e0e0e0;
+                letter-spacing: 1px;
+              "
+              >0000003100008904785935</span
+            >
+            <button
+              class="btn-copy"
+              onclick="copyToClipboard('cvu-text', this)"
+              style="
+                background: rgba(74, 144, 226, 0.1);
+                color: #4a90e2;
+                border: none;
+                border-radius: 10px;
+                padding: 0.3rem 0.8rem;
+                font-size: 1rem;
+                cursor: pointer;
+                font-weight: bold;
+                position: relative;
+                transition: all 0.3s ease;
+              "
+            >
+              📋
+              <span
+                class="tooltip-copy"
+                style="
+                  display: none;
+                  position: absolute;
+                  bottom: 120%;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  background: #b6fcb6;
+                  color: #222;
+                  padding: 0.3rem 0.8rem;
+                  border-radius: 8px;
+                  font-size: 0.95rem;
+                  font-weight: bold;
+                  white-space: nowrap;
+                  z-index: 10;
+                  opacity: 0;
+                  transition: opacity 0.2s;
+                "
+                >Datos copiados</span
+              >
+            </button>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.7rem;
+              position: relative;
+            "
+          >
+            <span style="color: #e0e0e0; font-weight: bold"
+              >Titular de Cuenta::</span
+            >
+            <span
+              id="cvu-text"
+              style="
+                text-decoration: underline;
+                color: #e0e0e0;
+                letter-spacing: 1px;
+              "
+              >Judith Soledad Ramallo</span
+            >
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Sección 5: Resumen Final -->
-    <section class="section section-5" id="resumen">
+    <!-- Sección 5: Brindis -->
+    <section class="section section-5" id="brindis">
       <div class="parallax-bg"></div>
-      <h2>Mis 15 años</h2>
+      <h2>Brindis</h2>
 
       <div
         style="
-          background: rgba(233, 30, 99, 0.1);
+          background: linear-gradient(
+            135deg,
+            rgba(26, 26, 46, 0.9),
+            rgba(22, 33, 62, 0.9)
+          );
+          border: 2px solid #4a90e2;
+          border-radius: 15px;
+          padding: 2.5rem;
+          margin: 2rem 0;
+          text-align: center;
+          box-shadow: 0 8px 32px rgba(74, 144, 226, 0.3),
+            inset 0 0 20px rgba(255, 255, 255, 0.1);
+        "
+      >
+        <p
+          style="
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: #e0e0e0;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+          "
+        >
+          Si decidís acompañarme en el brindis, podés anotarte en el siguiente
+          link.
+        </p>
+
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfRUkAUrYdCvR87_fd-zlpOd5OwAEFgT4aSHEFRcq3XoiGERQ/viewform?usp=header"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="forms-btn"
+          style="
+            background: #4285f4;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
+          "
+          onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(66, 133, 244, 0.4)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(66, 133, 244, 0.3)';"
+        >
+          📝 Anotarme en el Brindis
+        </a>
+      </div>
+    </section>
+
+    <!-- Sección 5: Resumen Final -->
+    <section class="section section-6" id="resumen">
+      <div class="parallax-bg"></div>
+      <h2>Información</h2>
+
+      <div
+        style="
+          background: rgba(26, 26, 46, 0.8);
           padding: 2.5rem;
           border-radius: 15px;
           margin: 2rem 0;
-          border: 2px solid #e91e63;
+          border: 2px solid #4a90e2;
           text-align: center;
+          box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
         "
       >
         <p
           style="
             font-size: clamp(1.5rem, 3vw, 2rem);
             font-weight: bold;
-            color: #e91e63;
+            color: #ffffff;
             margin-bottom: 1.5rem;
           "
         >
@@ -557,7 +1036,7 @@
         <p
           style="
             font-size: clamp(1.3rem, 2.8vw, 1.8rem);
-            color: #880e4f;
+            color: #e0e0e0;
             margin-bottom: 1.5rem;
           "
         >
@@ -567,23 +1046,34 @@
         <p
           style="
             font-size: clamp(1.3rem, 2.8vw, 1.8rem);
-            color: #880e4f;
+            color: #e0e0e0;
             margin-bottom: 2rem;
           "
         >
-          📍 Ruta 4 km 109 - Salón de Fiestas "El Jardín"
+          📍 "Camilo Bar" Ruta 8, Kilómetro 109. La Carlota
         </p>
       </div>
 
       <h1
         style="
-          font-size: clamp(2.5rem, 5vw, 4rem);
-          color: #e91e63;
-          margin-top: 2rem;
+          font-size: clamp(2rem, 4vw, 2.5rem);
+          color: #ffffff;
+
           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+          margin-bottom: 1rem;
         "
       >
-        ¡Te espero! 💕
+        Te espero!
+      </h1>
+
+      <h1
+        style="font-size: clamp(2.5rem, 5vw, 4rem); user-select: none"
+        onclick="triggerCelebration()"
+        onmouseover="this.style.transform='scale(1.1)';"
+        onmouseout="this.style.transform='scale(1)';"
+        class="vibrate-button"
+      >
+        🥳🥳🥳
       </h1>
     </section>
 
@@ -654,19 +1144,71 @@
       }
 
       // Floating Hearts Animation
-      function createHeart() {
-        const heart = document.createElement("div");
-        heart.className = "heart";
-        heart.innerHTML = "💕";
-        heart.style.left = Math.random() * 100 + "%";
-        heart.style.animationDelay = Math.random() * 2 + "s";
-        heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+      function createStar() {
+        const star = document.createElement("div");
+        star.className = "star";
+        star.innerHTML = "⭐";
+        star.style.left = Math.random() * 100 + "%";
+        star.style.animationDelay = Math.random() * 2 + "s";
+        star.style.animationDuration = Math.random() * 3 + 4 + "s";
 
-        document.getElementById("hearts-container").appendChild(heart);
+        document.getElementById("hearts-container").appendChild(star);
 
         setTimeout(() => {
-          heart.remove();
+          star.remove();
         }, 7000);
+      }
+
+      // Calendario visual de Agosto 2025
+      function renderAugustCalendar() {
+        const year = 2025;
+        const month = 7; // Agosto (0-indexed)
+        const daysInMonth = 31;
+        const firstDay = new Date(year, month, 1).getDay(); // 0=Domingo
+        const today = new Date();
+        const isCurrentMonth =
+          today.getFullYear() === year && today.getMonth() === month;
+        const todayDate = isCurrentMonth ? today.getDate() : null;
+        const specialDate = 29;
+        const weekDays = ["D", "L", "M", "M", "J", "V", "S"];
+        const grid = document.getElementById("calendar-grid");
+        grid.innerHTML = "";
+        // Días de la semana
+        weekDays.forEach((d) => {
+          const el = document.createElement("div");
+          el.className = "calendar-day";
+          el.textContent = d;
+          grid.appendChild(el);
+        });
+        // Espacios en blanco antes del 1
+        let blanks = firstDay;
+        for (let i = 0; i < blanks; i++) {
+          const blank = document.createElement("div");
+          blank.className = "calendar-date";
+          blank.style.visibility = "hidden";
+          grid.appendChild(blank);
+        }
+        // Días del mes
+        for (let d = 1; d <= daysInMonth; d++) {
+          const dateEl = document.createElement("div");
+          dateEl.className = "calendar-date";
+          dateEl.textContent = d;
+          if (d < todayDate) {
+            dateEl.classList.add("past");
+            // Agregar cruz roja
+            const x = document.createElement("span");
+            x.className = "red-x";
+            x.textContent = "✗";
+            dateEl.appendChild(x);
+          } else if (d === todayDate) {
+            dateEl.classList.add("today");
+          }
+          if (d === specialDate) {
+            dateEl.classList.add("special");
+            dateEl.title = "¡Día de la fiesta!";
+          }
+          grid.appendChild(dateEl);
+        }
       }
 
       // Smooth Scroll - Simplified (optional)
@@ -711,15 +1253,195 @@
         }
       }
 
+      // --- Copiar Alias/CVU y mostrar tooltip ---
+      function copyToClipboard(elementId, btn) {
+        const text = document.getElementById(elementId).textContent;
+        navigator.clipboard.writeText(text).then(function () {
+          const tooltip = btn.querySelector(".tooltip-copy");
+          if (tooltip) {
+            tooltip.style.display = "block";
+            setTimeout(() => {
+              tooltip.style.opacity = 1;
+            }, 10);
+            setTimeout(() => {
+              tooltip.style.opacity = 0;
+              setTimeout(() => {
+                tooltip.style.display = "none";
+              }, 300);
+            }, 1200);
+          }
+        });
+      }
+
+      // --- Efecto de celebración con confeti y emojis ---
+      function triggerCelebration() {
+        // Efecto de confeti
+        for (let i = 0; i < 50; i++) {
+          setTimeout(() => {
+            createConfetti();
+          }, i * 50);
+        }
+
+        // Emojis de celebración
+        const celebrationEmojis = [
+          "🎉",
+          "🎊",
+          "🎈",
+          "🎂",
+          "🎁",
+          "✨",
+          "💫",
+          "🌟",
+          "🎆",
+          "🎇",
+          "🥳",
+          "🎊",
+          "🎉",
+          "🎈",
+          "🎂",
+          "🎁",
+          "✨",
+          "💫",
+          "🌟",
+          "🎆",
+          "🎇",
+          "🥳",
+        ];
+
+        for (let i = 0; i < 20; i++) {
+          setTimeout(() => {
+            createCelebrationEmoji(
+              celebrationEmojis[
+                Math.floor(Math.random() * celebrationEmojis.length)
+              ]
+            );
+          }, i * 100);
+        }
+      }
+
+      function createConfetti() {
+        const confetti = document.createElement("div");
+        const colors = [
+          "#e91e63",
+          "#c2185b",
+          "#ff9800",
+          "#ffc107",
+          "#4caf50",
+          "#2196f3",
+          "#9c27b0",
+          "#ff5722",
+        ];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+
+        confetti.style.position = "fixed";
+        confetti.style.left = Math.random() * 100 + "%";
+        confetti.style.top = "-10px";
+        confetti.style.width = "10px";
+        confetti.style.height = "10px";
+        confetti.style.backgroundColor = color;
+        confetti.style.borderRadius = "50%";
+        confetti.style.pointerEvents = "none";
+        confetti.style.zIndex = "9999";
+        confetti.style.animation = "fall 3s linear forwards";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+          confetti.remove();
+        }, 3000);
+      }
+
+      function createCelebrationEmoji(emoji) {
+        const emojiEl = document.createElement("div");
+        emojiEl.innerHTML = emoji;
+        emojiEl.style.position = "fixed";
+        emojiEl.style.left = Math.random() * 100 + "%";
+        emojiEl.style.top = Math.random() * 100 + "%";
+        emojiEl.style.fontSize = "2rem";
+        emojiEl.style.pointerEvents = "none";
+        emojiEl.style.zIndex = "9998";
+        emojiEl.style.animation = "celebrate 2s ease-out forwards";
+
+        document.body.appendChild(emojiEl);
+
+        setTimeout(() => {
+          emojiEl.remove();
+        }, 2000);
+      }
+
+      // Agregar keyframes para las animaciones
+      const style = document.createElement("style");
+      style.textContent = `
+        @keyframes fall {
+          0% {
+            transform: translateY(-10px) rotate(0deg);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+          }
+        }
+        
+        @keyframes celebrate {
+          0% {
+            transform: scale(0) rotate(0deg);
+            opacity: 1;
+          }
+          50% {
+            transform: scale(1.5) rotate(180deg);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(0) rotate(360deg);
+            opacity: 0;
+          }
+        }
+        
+        @keyframes vibrate {
+          0% {
+            transform: translate(0);
+          }
+          20% {
+            transform: translate(-2px, 2px);
+          }
+          40% {
+            transform: translate(-2px, -2px);
+          }
+          60% {
+            transform: translate(2px, 2px);
+          }
+          80% {
+            transform: translate(2px, -2px);
+          }
+          100% {
+            transform: translate(0);
+          }
+        }
+        
+        .vibrate-button {
+          animation: vibrate 0.3s ease-in-out infinite;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+        
+        .vibrate-button:hover {
+          animation: none;
+          transform: scale(1.1);
+        }
+      `;
+      document.head.appendChild(style);
+
       // Initialize
       document.addEventListener("DOMContentLoaded", function () {
         updateCountdown();
         setInterval(updateCountdown, 1000);
+        renderAugustCalendar(); // Render calendar on load
 
         window.addEventListener("scroll", handleParallax);
         window.addEventListener("scroll", updateActiveNavLink);
 
-        setInterval(createHeart, 2000);
+        setInterval(createStar, 2000);
 
         initSmoothScroll();
 
